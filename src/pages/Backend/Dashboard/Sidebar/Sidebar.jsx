@@ -66,7 +66,7 @@ const Sidebar = ({ isMinimized }) => {
       >
         {!isMinimized && (
           <button>
-            NggaweDW
+            NggaweDWCuy
           </button>
         )}
       </div>
