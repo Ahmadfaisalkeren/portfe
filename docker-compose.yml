@@ -1,0 +1,11 @@
+services:
+  portfe:
+    container_name: portfe
+    image: image_portfe
+    build: .
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    external: true
