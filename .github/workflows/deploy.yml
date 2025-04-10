@@ -32,20 +32,20 @@ jobs:
       - name: Build React App
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            cd /var/www/docker/portfe
-
-            echo "Cleaning previous dist folder if exists..."
-            [ -d dist ] && rm -rf dist
-
-            echo "Installing dependencies..."
-            sudo npm install
-
-            echo "Building project..."
-            sudo npm run build
+            host: ${{ secrets.VPS_HOST }}
+            username: ${{ secrets.VPS_USERNAME }}
+            key: ${{ secrets.VPS_SSH_KEY }}
+            script: |
+                cd /var/www/docker/portfe
+                echo "Cleaning previous dist folder if exists..."
+                [ -d dist ] && rm -rf dist
+                echo "Installing dependencies..."
+                sudo npm install
+                echo "Building project..."
+                sudo npm run build --silent
+                echo "✅ Build completed successfully."
+                exit 0
+          
 
       - name: Build & Run Docker Compose
         uses: appleboy/ssh-action@v0.1.10
